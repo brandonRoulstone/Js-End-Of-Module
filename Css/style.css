@@ -6,6 +6,8 @@
 :root{
     --black: black;
     --White: white;
+    --red: red;
+    --blue: rgb(0, 208, 255);
 }
 
 
@@ -14,6 +16,20 @@
     width: 60px;
     height: 60px;
     flex-shrink: 0;
+
+    animation: Spin;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes Spin {
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
 }
 
 [data-nav]:hover{
@@ -21,9 +37,9 @@
     transition: 1s ease-in-out;
 }
 
-#navBar{
+/* #navBar{
     position: fixed;
-}
+} */
 
 #landingPage{
     display: flex;
@@ -43,9 +59,28 @@
 }
 
 
-/* border-radius: 60px;
-background: url(<path-to-image>), lightgray 50% / cover no-repeat; */
+/* adminPage */
 
-/* width: 60px;
-height: 60px;
-flex-shrink: 0; */
+#adminPage{
+    min-height: 100vh;
+}
+
+.delete{
+    background-color: var(--red);
+    color: var(--White);
+    border: 1px solid var(--black);
+    height: 40px;
+    border-radius: 10px;
+    padding: 2px;
+    width: 100%;
+}
+
+.edit{
+    background-color: var(--blue);
+    color: var(--White);
+    border: 1px solid var(--black);
+    height: 40px;
+    border-radius: 10px;
+    padding: 2px;
+    width: 100%;
+}
