@@ -6,32 +6,92 @@
     <title>Home</title>
     <link rel="stylesheet" href="/Css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/1062e64fed.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div class="container">
+
+    <div class="container" id="navBar">
+
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+
           <div class="col-md-3 mb-2 mb-md-0">
+
             <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-              <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+
+              <img src="https://i.postimg.cc/vTg81mNq/animal-1296454-640.webp" class="img-fluid" id="logo"></img>
+
             </a>
           </div>
     
           <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="./index.html" class="nav-link px-2 link-secondary">Home</a></li>
-            <li><a href="./Html/admin.html" class="nav-link px-2">Admin</a></li>
-            <li><a href="./Html/product.html" class="nav-link px-2">Product</a></li>
-            <li><a href="./Html/checkout.html" class="nav-link px-2">Checkout</a></li>
-            <li><a href="./Html/about.html" class="nav-link px-2">About</a></li>
-            <li><a href="./Html/contact.html" class="nav-link px-2">Contact</a></li>
+
+            <li><a href="./index.html" class="nav-link px-2 text-black" data-nav >Home</a></li>
+
+            <li><a href="./Html/admin.html" class="nav-link px-2 text-black" data-nav>Admin</a></li>
+
+            <li><a href="./Html/product.html" class="nav-link px-2 text-black" data-nav>Product</a></li>
+
+            <li><a href="./Html/checkout.html" class="nav-link px-2 text-black" data-nav>Checkout</a></li>
+
+            <li><a href="./Html/about.html" class="nav-link px-2 text-black" data-nav>About</a></li>
+
+            <li><a href="./Html/contact.html" class="nav-link px-2 text-black" data-nav>Contact</a></li>
+
           </ul>
     
         </header>
+
     </div>
-    <h1>Home</h1>
-    <main>
-        
+
+
+    <main id="landingPage">
+
+        <div class="container col-xxl-8 px-4 py-5">
+
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+
+              <div class="col-10 col-sm-8 col-lg-6">
+
+                <img src="https://i.postimg.cc/tgV9SF7k/tennis-6170702-640.webp" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+
+              </div>
+
+              <div class="col-lg-6">
+
+                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3 text-center">Welcome to <br>Hype-Beast <br> City</h1>
+
+                <p class="lead">Welcome to Hype Beast City! Discover exclusive streetwear, sneakers, and urban culture essentials. Join the hype today.</p>
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+
+                  <a href="/Html/product.html" class="btn btn-lg px-4 me-md-2"><button type="button" class="btn bg-black btn-lg px-4 me-md-2 text-white">Shop Now <span class="bg-white p-1" id="icon"><i class="fa-solid fa-arrow-right fa-sm" style="color: #000000;"></i></span></button></a>
+
+                </div>
+
+                <div class="d-flex justify-content-evenly m-4 p-3">
+
+                    <img src="https://i.postimg.cc/ncB75Swj/logo-1.png" alt="logo-1" id="image" class="img-fluid">
+
+                    <img src="https://i.postimg.cc/BnGhwV4t/logo-4.png" alt="logo-2" id="image" class="img-fluid">
+
+                    <img src="https://i.postimg.cc/J02sHZnk/logo-3.png" alt="logo-3" id="image" class="img-fluid">
+
+                    <img src="https://i.postimg.cc/HsTcZwFd/logo-5.png" alt="logo-4" id="image" class="img-fluid">
+
+                </div>
+                <div class="text-center">
+                    Official partners
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
     </main>
-    <footer>2023 &copy;</footer>
+
+    <footer class="fw-bold text-center">Hype-Beast-city est 2023 &copy;</footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="/Script/index.js"></script>
   </body>
