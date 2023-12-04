@@ -1,0 +1,51 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+:root{
+    --black: black;
+    --White: white;
+}
+
+
+#logo{
+    border-radius: 60px;
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+}
+
+[data-nav]:hover{
+    border-bottom: 1px solid var(--black);
+    transition: 1s ease-in-out;
+}
+
+#navBar{
+    position: fixed;
+}
+
+#landingPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#icon{
+    border-radius: 50%;
+}
+
+#image{
+    height: 50px;
+    width: 50px;
+    flex-shrink: 0;
+}
+
+
+/* border-radius: 60px;
+background: url(<path-to-image>), lightgray 50% / cover no-repeat; */
+
+/* width: 60px;
+height: 60px;
+flex-shrink: 0; */
