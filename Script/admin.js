@@ -96,14 +96,22 @@ function RenderProduct(){
         <div class="container bg-black p-1" id="adminDiv">
         
             <table class="table table-striped">
+            
                 <tr>
                     <td><img src="${item.url}" class="img"/></td>
+
                     <td class="fs-4 text-center">${item.name}</td>
+
                     <td class="text-center">${item.description}</td>
+
                     <td class="fs-3 text-center">${item.price}</td>
+
                     <td class=""><button class="edit" id="editBtn" value="${i}">Edit</button></td>
+
                     <td class=""><button class="delete" id="remove" value="${i}">Del <i class="fa-solid fa-trash-can fa-sm" style="color: #ffffff;"></i></button></td>
+
                 </tr>
+
             </table>
 
         </div>
