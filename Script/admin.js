@@ -114,45 +114,80 @@ function RenderProduct(){
 
 RenderProduct();
 
+// =============Modal funtionality============ \\
+
 const modal = document.getElementById("myModal");
+
 let modalbtn = document.querySelector("[value]");
+
 let loc = document.getElementById("sss");
+
 let delteBtn = document.querySelector(".delete");
 
 function activateModal(position){
+
+    //If the button in array is at "the position of array"
+
     itemArr.at(position);
 }
 
 adminDom.addEventListener("click", function(){
+    // check if the current value of button has the attribute value
+
     if(event.target.hasAttribute("value")){
+
         modal.style.display = "block";
-        activateModal(event.target.value)
+
+        //Reads and gets the desired value at target
+
+        activateModal(event.target.value);
+
     }
 });
 
 loc.addEventListener("click", function(){
+
+    // removes modal from DOM
+
     modal.style.display = "none";
+
 });
 
+// ================Window Active?===============\\
+
 window.addEventListener("click", function(event){
+
+    // If modal container contains classlist modal then fire display "none"
+
     if (event.target.classList.contains("modal")){
+
         modal.style.display = "none";
+        
     }
+
 });
 
 function saveToStorage(){
+
     localStorage.setItem("Admin", JSON.stringify(itemArr));
+
     itemArr = JSON.parse(localStorage.getItem("Admin"));
 }
 
 function deleItem(pos){
+    
     itemArr.splice(pos, 1);
+
     saveToStorage();
+
     RenderProduct();
 }
 
 adminDom.addEventListener("click", function() {
+    // ============= Deletes product ============= \\
     if(event.target.classList.contains("delete")){
-        deleItem(event.target.value, RenderProduct())
+
+        deleItem(event.target.value, RenderProduct());
+
     }
 })
