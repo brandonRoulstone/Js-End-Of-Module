@@ -1,7 +1,5 @@
 let itemArr = [];
 
-localStorage.setItem("Admin", JSON.stringify(itemArr));
-itemArr = JSON.parse(localStorage.getItem("Admin"));
 
 function InitializeProducts(id, name, description, price, url){
     this.id = id,
@@ -40,39 +38,42 @@ let product13 = new InitializeProducts(13, "Nike", "Its a shoe", 2500, "https://
 
 itemArr.push(
     product1,
-
+    
     product2,
-
+    
     product3,
-
+    
     product4,
-
+    
     product5,
-
+    
     product6,
-
+    
     product7,
-
+    
     product8,
-
+    
     product9,
-
+    
     product10,
-
+    
     product11,
 
     product12,
     
     product13
-);
-
-console.log(itemArr);
-
-const adminDom = document.querySelector("main");
-
+    );
+    
+    console.log(itemArr);
+    localStorage.setItem("Admin", JSON.stringify(itemArr));
+    
+    itemArr = JSON.parse(localStorage.getItem("Admin"));
+    
+    const adminDom = document.querySelector("main");
+    
 function RenderProduct(){
     let initialState = itemArr.map(function(item, i){
-    return `
+        return `
         <div id="myModal" class="modal">
             <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSheet">
                 <div class="modal-dialog" role="document">
@@ -100,7 +101,7 @@ function RenderProduct(){
                     <td class="fs-4 text-center">${item.name}</td>
                     <td class="text-center">${item.description}</td>
                     <td class="fs-3 text-center">${item.price}</td>
-                    <td class=""><button class="edit" id="editBtn" data-value>Edit</button></td>
+                    <td class=""><button class="edit" id="editBtn" value="${i}">Edit</button></td>
                     <td class=""><button class="delete" id="remove" value="${i}">Del <i class="fa-solid fa-trash-can fa-sm" style="color: #ffffff;"></i></button></td>
                 </tr>
             </table>
@@ -114,32 +115,18 @@ function RenderProduct(){
 RenderProduct();
 
 const modal = document.getElementById("myModal");
-let modalbtn = document.querySelector("[data-value]");
+let modalbtn = document.querySelector("[value]");
 let loc = document.getElementById("sss");
 let delteBtn = document.querySelector(".delete");
 
-// adminDom.addEventListener("click", function () {
-//     modalbtn.addEventListener("click", function(e){
-//         if(e.target.classList.contains("edit")){
-//             modal.style.display = "block";
-//         }
-//     });
-    
-//     loc.addEventListener("click", function(){
-//         modal.style.display = "none";
-//     });
-    
-//     window.addEventListener("click", function(event){
-//         if (event.target.classList.contains("modal")){
-//             modal.style.display = "none";
-//         }
-//     });
-// })
+function activateModal(position){
+    itemArr.at(position);
+}
 
-
-modalbtn.addEventListener("click", function(e){
-    if(e.target.classList.contains("edit")){
+adminDom.addEventListener("click", function(){
+    if(event.target.hasAttribute("value")){
         modal.style.display = "block";
+        activateModal(event.target.value)
     }
 });
 
