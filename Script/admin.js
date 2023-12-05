@@ -62,14 +62,15 @@ itemArr.push(
     product12,
     
     product13
-    );
+);
     
-    console.log(itemArr);
-    localStorage.setItem("Admin", JSON.stringify(itemArr));
+console.log(itemArr);
     
-    itemArr = JSON.parse(localStorage.getItem("Admin"));
+localStorage.setItem("Admin", JSON.stringify(itemArr));
     
-    const adminDom = document.querySelector("main");
+itemArr = JSON.parse(localStorage.getItem("Admin"));
+
+const adminDom = document.querySelector("main");
     
 function RenderProduct(){
     let initialState = itemArr.map(function(item, i){
