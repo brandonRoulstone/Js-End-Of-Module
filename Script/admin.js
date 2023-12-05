@@ -1,40 +1,40 @@
 let itemArr = [];
 
 
-function InitializeProducts(id, name, description, price, url){
+function InitializeProducts(id, name, description, price, url, text){
     this.id = id,
     this.name = name,
     this.description = description,
     this.price = price,
-    this.url = url
+    this.url = url,
+    this.text = text
 }
 
-let product1 = new InitializeProducts(1, "Nike", "Air force 1", 2500, "https://cdn-thumbs.imagevenue.com/da/59/fa/ME178OIZ_t.jpg");
+let product1 = new InitializeProducts(1, "Nike", "Air force 1", 2500, "https://cdn-thumbs.imagevenue.com/da/59/fa/ME178OIZ_t.jpg", "Iconic, timeless, and always in style – the Nike Air Force 1.");
 
-let product2 = new InitializeProducts(2, "G-star", "Its's a shoe", 1600, "https://cdn-thumbs.imagevenue.com/e9/48/0b/ME178OJD_t.jpg");
+let product2 = new InitializeProducts(2, "G-star", "It's a shoe", 1600, "https://cdn-thumbs.imagevenue.com/e9/48/0b/ME178OJD_t.jpg", "Experience modern design and durability with the G-star shoe.");
 
-let product3 = new InitializeProducts(3, "Nike", "Nike dunk", 2600, "https://i.postimg.cc/7LVTSD31/product-1.jpg");
+let product3 = new InitializeProducts(3, "Nike", "Nike dunk", 2600, "https://i.postimg.cc/7LVTSD31/product-1.jpg", "Retro vibes and an attitude to match – it's the Nike Dunk.");
 
-let product4 = new InitializeProducts(4, "Nike Air", "Its a shoe", 2500, "https://cdn-thumbs.imagevenue.com/ad/bc/4e/ME178OEA_t.jpg");
+let product4 = new InitializeProducts(4, "Nike Air", "It's a shoe", 2500, "https://cdn-thumbs.imagevenue.com/ad/bc/4e/ME178OEA_t.jpg", "Step into innovation and style with Nike Air.");
 
-let product5 = new InitializeProducts(5, "Adidas", "Its a shoe", 1899, "https://cdn-thumbs.imagevenue.com/68/1b/5c/ME178OEX_t.jpg");
+let product5 = new InitializeProducts(5, "Adidas", "It's a shoe", 1899, "https://cdn-thumbs.imagevenue.com/68/1b/5c/ME178OEX_t.jpg", "Versatile and comfortable, it's the Adidas shoe for every occasion.");
 
-let product6 = new InitializeProducts(6, "Adidas", "Its a shoe", 2399, "https://cdn-thumbs.imagevenue.com/ed/93/cd/ME178OFA_t.jpg");
+let product6 = new InitializeProducts(6, "Adidas", "It's a shoe", 2399, "https://cdn-thumbs.imagevenue.com/ed/93/cd/ME178OFA_t.jpg", "Sporty and stylish – the Adidas shoe, and very comfortable.");
 
-let product7 = new InitializeProducts(7, "Puma", "Its a shoe", 1699, "https://cdn-thumbs.imagevenue.com/f9/a4/23/ME178OFX_t.jpg");
+let product7 = new InitializeProducts(7, "Puma", "It's a shoe", 1699, "https://cdn-thumbs.imagevenue.com/f9/a4/23/ME178OFX_t.jpg", "Versatility meets style with the Puma shoe.");
 
-let product8 = new InitializeProducts(8, "Puma", "Its a shoe", 2199, "https://cdn-thumbs.imagevenue.com/9c/ec/e9/ME178OG3_t.jpg");
+let product8 = new InitializeProducts(8, "Puma", "It's a shoe", 2199, "https://cdn-thumbs.imagevenue.com/9c/ec/e9/ME178OG3_t.jpg", "Functional and fashionable – the Puma shoe.");
 
-let product9 = new InitializeProducts(9, "Puma", "Its a shoe", 2899, "https://cdn-thumbs.imagevenue.com/de/5e/84/ME178OGC_t.jpg");
+let product9 = new InitializeProducts(9, "Puma", "It's a shoe", 2899, "https://cdn-thumbs.imagevenue.com/de/5e/84/ME178OGC_t.jpg", "Unmatched style and comfort – it's Puma.");
 
-let product10 = new InitializeProducts(10, "G-star", "Its a shoe", 1899, "https://cdn-thumbs.imagevenue.com/6c/c7/b2/ME178OGK_t.jpg");
+let product10 = new InitializeProducts(10, "G-star", "It's a shoe", 1899, "https://cdn-thumbs.imagevenue.com/6c/c7/b2/ME178OGK_t.jpg", "Another trendsetter from G-star, absolutely an amazing shoe.");
 
-let product11 = new InitializeProducts(11, "G-star", "Its a shoe", 2500, "https://cdn-thumbs.imagevenue.com/49/11/06/ME178OH2_t.jpg");
+let product11 = new InitializeProducts(11, "G-star", "It's a shoe", 2500, "https://cdn-thumbs.imagevenue.com/49/11/06/ME178OH2_t.jpg", "Modern design and unparalleled comfort – G-star.");
 
-let product12 = new InitializeProducts(12, "Nike", "Its a shoe", 2099, "https://cdn-thumbs.imagevenue.com/aa/47/8b/ME178OHG_t.jpg");
+let product12 = new InitializeProducts(12, "Nike", "It's a shoe", 2099, "https://cdn-thumbs.imagevenue.com/aa/47/8b/ME178OHG_t.jpg", "Quality meets style with Nike, makes anything looks fashionable.");
 
-let product13 = new InitializeProducts(13, "Nike", "Its a shoe", 2500, "https://cdn-thumbs.imagevenue.com/73/cd/46/ME178OHO_t.jpg");
-
+let product13 = new InitializeProducts(13, "Nike", "It's a shoe", 2500, "https://cdn-thumbs.imagevenue.com/73/cd/46/ME178OHO_t.jpg", "The perfect blend of comfort and style – Nike.");
 
 itemArr.push(
     product1,
@@ -62,15 +62,14 @@ itemArr.push(
     product12,
     
     product13
-);
+    );
     
-console.log(itemArr);
+    console.log(itemArr);
+    localStorage.setItem("Admin", JSON.stringify(itemArr));
     
-localStorage.setItem("Admin", JSON.stringify(itemArr));
+    itemArr = JSON.parse(localStorage.getItem("Admin"));
     
-itemArr = JSON.parse(localStorage.getItem("Admin"));
-
-const adminDom = document.querySelector("main");
+    const adminDom = document.querySelector("main");
     
 function RenderProduct(){
     let initialState = itemArr.map(function(item, i){
@@ -110,7 +109,7 @@ function RenderProduct(){
         </div>
         `;
     });
-    adminDom.innerHTML = initialState.join("");
+    adminDom.innerHTML = initialState;
 }
 
 RenderProduct();
@@ -191,4 +190,4 @@ adminDom.addEventListener("click", function() {
         deleItem(event.target.value, RenderProduct());
 
     }
-})
+});
