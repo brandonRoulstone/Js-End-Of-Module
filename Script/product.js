@@ -109,11 +109,11 @@ let sortBtn = document.getElementById("sort");
 
 sortBtn.addEventListener("click", ()=>{
 
-    let sorted = JSON.parse(localStorage.getItem("Admin"))?.sort((a, b) =>{
+    let sorted = JSON.parse(localStorage.getItem("Admin"))?.sort((x, y) =>{
 
-      if(a.price < b.price ) return -1; // go before whats current
+      if(x.price < y.price ) return -1; // go before whats current
 
-      if(a.price > b.price ) return 1; // it will always be after
+      if(x.price > y.price ) return 1; // it will always be after
 
       return 0; 
 
