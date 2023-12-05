@@ -38,9 +38,9 @@
     transition: 1s ease-in-out;
 }
 
-#navBar{
+/* #navBar{
     position: fixed;
-}
+} */
 
 #landingPage{
     display: flex;
@@ -89,9 +89,9 @@
 /*=================== products page ===================*/
 
 #productPage{
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 #img{
@@ -120,11 +120,9 @@
     background-color: var(--lightgreen);
 }
 
-.add-button{
-    height: 30px;
-    background-color: var(--black);
-    color: var(--White);
-    border: none;
+#filteredImg{
+    filter:brightness(50%);
+    height: 295px;
 }
 
 
@@ -138,32 +136,27 @@
 /* ================== Meadia Queries ================= */
 @media (max-width: 1080px) {
     #productPage{
-        display: grid;
-        grid-template-columns: repeat(8, 1fr);
-        margin: 150px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 }
 
 
 @media (max-width: 998px) {
     #productPage{
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        /* margin: 115px; */
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
 }
 
 @media (max-width: 820px) {
     #productPage{
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        /* margin: 50px; */
-    }
-    .add-button{
-        height: 30px;
-        background-color: var(--black);
-        color: var(--White);
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
 }
@@ -175,15 +168,5 @@
         margin: 80px;
     }
 
-    #img{
-        min-width: 100px;
-        min-height: 100px;
-    }
-
-    .add-button{
-        height: 30px;
-        background-color: var(--black);
-        color: var(--White);
-    }
 
 }
