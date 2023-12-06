@@ -29,10 +29,6 @@ body.innerHTML = items.map((v, i) => {
 
 
 
-
-
-// itemArr = JSON.parse(localStorage.getItem("purchased"));
-
 const addToCart = (i) => {
     //======pushing the index of the item array====== \\
     cartList.push(items[i]);
@@ -95,50 +91,58 @@ try {
 
 
 
+// ==================Spinner===================\\
 
+const loader = document.getElementById("loader");
 
-
-
-
+if(items.length > 0){
+    loader.style.display = "none";
+} else if (items.length === 0){
+    loader.style.display = "block";
+}
 
 
 // ===============Sort function=============== \\
 
 
-let sortBtn = document.getElementById("sort");
+try {
+    let sortBtn = document.getElementById("sort");
 
-sortBtn.addEventListener("click", ()=>{
+    sortBtn.addEventListener("click", ()=>{
 
-    let sorted = JSON.parse(localStorage.getItem("Admin"))?.sort((x, y) =>{
+        let sorted = JSON.parse(localStorage.getItem("Admin"))?.sort((x, y) =>{
 
-      if(x.price < y.price ) return -1; // go before whats current
+        if(x.price < y.price ) return -1; // go before whats current
 
-      if(x.price > y.price ) return 1; // it will always be after
+        if(x.price > y.price ) return 1; // it will always be after
 
-      return 0; 
+        return 0; 
 
+        });
+
+        body.innerHTML = sorted.map(function(item,index){
+
+            return`
+                <div class="card col-md-4 my-5" style="width: 18rem;">
+                
+                    <img src="${item.url}" class="card-img-top" id="filteredImg" alt="${item.name}">
+
+                    <div class="card-body">
+
+                        <h2 class="card-title text-center">${item.name}</h2>
+
+                        <p class="card-text text-center">${item.text}</p>
+
+                        <p class="fw-bold text-center">R ${item.price}</p>
+
+                        <button value="${index}" class="bg-black w-100 text-white btn">Buy</button>
+
+                    </div>
+
+                </div>
+            `;
+        }).join(''); 
     });
-
-    body.innerHTML = sorted.map(function(item,index){
-
-        return`
-        <div class="card col-md-4 my-5" style="width: 18rem;">
-    
-            <img src="${item.url}" class="card-img-top" id="filteredImg" alt="${item.name}">
-
-            <div class="card-body">
-
-                <h2 class="card-title text-center">${item.name}</h2>
-
-                <p class="card-text text-center">${item.text}</p>
-
-                <p class="fw-bold text-center">R ${item.price}</p>
-
-                <button value="${index}" class="bg-black w-100 text-white btn">Buy</button>
-
-            </div>
-
-        </div>
-        `;
-    }).join(''); 
-});
+} catch (error) {
+    throw new Error(error);
+}
