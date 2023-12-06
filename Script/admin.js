@@ -147,7 +147,7 @@ const modal = document.getElementById("myModal");
 
 let modalbtn = document.querySelector("[value]");
 
-let loc = document.getElementById("sss");
+let closeModal = document.getElementById("sss");
 
 let delteBtn = document.querySelector(".delete");
 
@@ -172,7 +172,7 @@ adminDom.addEventListener("click", function(){
     }
 });
 
-loc.addEventListener("click", function(){
+closeModal.addEventListener("click", function(){
 
     // removes modal from DOM
 

@@ -134,8 +134,9 @@
 
 /* =====================Loader========================= */
 
-#loader{
-    transform: translateX(728px);
+.load{
+    display: flex;
+    justify-content: center;
 }
 
 [data-text]{
@@ -169,7 +170,32 @@
 
 
 
+/* ================= Checkout page ==================== */
 
+#checkoutPage{
+    display: flex;
+    justify-content: center;
+}
+
+#displayImages{
+    max-width: 450px; 
+    scroll-behavior: smooth;
+    overflow: auto;
+    display: flex;
+    background-color: var(--black);
+}
+
+.image{
+    height: 100%;
+    border: 1px solid var(--black);
+}
+
+[data-index]{
+    background-color: var(--red);
+    color: var(--White);
+    border: none;
+    padding: 3px;
+}
 
 
 /* ================== Meadia Queries ================= */
@@ -209,3 +235,4 @@
 
 
 }
+
