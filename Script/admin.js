@@ -62,14 +62,21 @@ itemArr.push(
     product12,
     
     product13
-    );
+);
     
-    console.log(itemArr);
+console.log(itemArr);
+localStorage.setItem("Admin", JSON.stringify(itemArr));
+    
+itemArr = JSON.parse(localStorage.getItem("Admin"));
+    
+function saveToStorage(){
+    
     localStorage.setItem("Admin", JSON.stringify(itemArr));
     
     itemArr = JSON.parse(localStorage.getItem("Admin"));
-    
-    const adminDom = document.querySelector("main");
+}
+
+const adminDom = document.querySelector("main");
     
 function RenderProduct(){
     let initialState = itemArr.map(function(item, i){
@@ -93,7 +100,7 @@ function RenderProduct(){
             </div>
         </div>
   
-        <div class="container bg-black p-1" id="adminDiv">
+        <div class="container p-1" id="adminDiv">
         
             <table class="table table-striped">
             
@@ -105,6 +112,8 @@ function RenderProduct(){
                     <td class="text-center">${item.description}</td>
 
                     <td class="fs-3 text-center">${item.price}</td>
+
+                    <td  style="max-width: 200px; overflow: auto;" class="text-center w-25">${item.text}</td>
 
                     <td class=""><button class="edit" id="editBtn" value="${i}">Edit</button></td>
 
@@ -118,6 +127,16 @@ function RenderProduct(){
         `;
     });
     adminDom.innerHTML = initialState;
+
+    // =================== loader =====================\\
+
+    const loader = document.getElementById("loader");
+
+    if(initialState.length > 0){
+        loader.style.display = "none";
+    } else if (initialState.length === 0){
+        loader.style.display = "block";
+    }
 }
 
 RenderProduct();
@@ -175,12 +194,6 @@ window.addEventListener("click", function(event){
 
 });
 
-function saveToStorage(){
-
-    localStorage.setItem("Admin", JSON.stringify(itemArr));
-
-    itemArr = JSON.parse(localStorage.getItem("Admin"));
-}
 
 function deleItem(pos){
     
@@ -199,3 +212,6 @@ adminDom.addEventListener("click", function() {
 
     }
 });
+
+
+
