@@ -9,7 +9,7 @@
     --red: red;
     --blue: rgb(0, 208, 255);
     --lightgreen: rgb(36, 216, 36);
-    --purple: purple;
+    --purple: rgba(128, 0, 128, 0.283);
 }
 
 #searcContainer{

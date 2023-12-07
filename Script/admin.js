@@ -149,9 +149,11 @@ function RenderProduct(){
             <table class="table table-striped">
             
                 <tr>
-                    <td><img src="${item.url}" class="img"/></td>
+                    <td>${i}</td>
+                    
+                    <td><img src="${item.url}" class="img align-content-between" style="height:50px;"/></td>
 
-                    <td class="fs-4 text-center">${item.name}</td>
+                    <td class="fs-3 text-center">${item.name}</td>
 
                     <td class="text-center">${item.description}</td>
 
@@ -439,4 +441,42 @@ function clearAll(){
 
 terminateAll.addEventListener("click", clearAll);
 
+// ===================== Add Products ======================== \\
 
+// Get references to input fields
+const addImageInput = document.getElementById("imgUrl");
+const addPriceInput = document.getElementById("priceInput");
+const addDescriptionInput = document.getElementById("descriptionInput");
+const addTextInput = document.getElementById("textInput");
+const addProductInput = document.getElementById("productInput");
+const saveBtn = document.querySelector("[data-targ]");
+
+saveBtn.addEventListener("click", function(){
+    // Capture values from input fields when the "Save" button is clicked
+    const newImage = addImageInput.value;
+    const newPrice = addPriceInput.value;
+    const newDescription = addDescriptionInput.value;
+    const newText = addTextInput.value;
+    const newProductName = addProductInput.value;
+
+    // initialize new product into existing constructor
+    const newProduct = new InitializeProducts(
+        itemArr.length + 1, // (incremental to current length)
+        newProductName,
+        newDescription,
+        newPrice,
+        newImage,
+        newText
+    );
+
+    
+    itemArr.push(newProduct);
+
+    
+    saveToStorage();
+    RenderProduct();
+});
+
+
+
+// console.log(addImage);
