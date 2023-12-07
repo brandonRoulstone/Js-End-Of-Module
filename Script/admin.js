@@ -7,7 +7,8 @@ function InitializeProducts(id, name, description, price, url, text){
     this.description = description,
     this.price = price,
     this.url = url,
-    this.text = text
+    this.text = text,
+    this.quantity = 1
 }
 
 let product1 = new InitializeProducts(1, "Nike", "Air force 1", 2500, "https://cdn-thumbs.imagevenue.com/da/59/fa/ME178OIZ_t.jpg", "Iconic, timeless, and always in style – the Nike Air Force 1.");
@@ -149,21 +150,21 @@ function RenderProduct(){
             <table class="table table-striped">
             
                 <tr>
-                    <td>${i}</td>
+                    <td class="border">${i}</td>
                     
-                    <td><img src="${item.url}" class="img align-content-between" style="height:50px;"/></td>
+                    <td class="border"><img src="${item.url}" class="img align-content-between" style="height:50px;"/></td>
 
                     <td class="fs-3 text-center">${item.name}</td>
 
-                    <td class="text-center">${item.description}</td>
+                    <td class="text-center border">${item.description}</td>
 
-                    <td class="fs-3 text-center">R ${item.price}</td>
+                    <td class="fs-3 text-center border">R ${item.price}</td>
 
-                    <td  style="max-width: 200px; overflow: auto;" class="text-center w-25">${item.text}</td>
+                    <td  style="max-width: 200px; overflow: auto;" class="text-center w-25 border">${item.text}</td>
 
-                    <td class=""><button class="edit" id="editBtn" value="${i}">Edit</button></td>
+                    <td class="border"><button class="edit" id="editBtn" value="${i}"><i class="fa-regular fa-pen-to-square fa-sm" style="color: #ffffff;"></i></button></td>
 
-                    <td class=""><button class="delete" id="remove" value="${i}">Del <i class="fa-solid fa-trash-can fa-sm" style="color: #ffffff;"></i></button></td>
+                    <td class="border"><button class="delete" id="remove" value="${i}"><i class="fa-solid fa-trash-can fa-sm" style="color: #ffffff;"></i></button></td>
 
                 </tr>
 
@@ -245,9 +246,9 @@ function deleItem(pos){
     
     itemArr.splice(pos, 1);
 
+    saveToStorage();
     RenderProduct();
 
-    saveToStorage();
 }
 
 adminDom.addEventListener("click", function() {
@@ -322,80 +323,20 @@ try {
         adminDom.innerHTML = sorted.map(function(item,index){
 
             return`
-                <div id="myModal" class="modal">
-
-                    <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSheet">
-
-                        <div class="modal-dialog" role="document">
-
-                            <div class="modal-content rounded-4 shadow">
-
-                                <div class="modal-header border-bottom-0">
-
-                                    <h1 class="modal-title fs-5">Edit product ${index}</h1>
-
-                                    <button type="button" class="btn-close" id="closeBtn" aria-label="Close"></button>
-
-                                </div>
-
-                                <form>
-
-                                    <div class="mb-1 py-1">
-
-                                        <label for="brand-name" class="col-form-label">Product brand:</label>
-
-                                        <textarea class="form-control" id="brand-name">${item.name}</textarea>
-
-                                    </div>
-                                    <div class="mb-1 py-1">
-
-                                        <label for="price-name" class="col-form-label">Edit price:</label>
-
-                                        <textarea class="form-control" id="price-name">R ${item.price}</textarea>
-
-                                    </div>
-
-                                    <div class="mb-1">
-
-                                        <label for="message-text" class="col-form-label">Text:</label>
-
-                                        <textarea class="form-control" id="message-text">${item.text}</textarea>
-
-                                    </div>
-                                    <div class="mb-1">
-
-                                    <label for="url-text" class="col-form-label">Text:</label>
-
-                                    <textarea class="form-control" id="url-text">${item.url}</textarea>
-
-                                    </div>
-
-                                    <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
-
-                                        <button type="button" class="btn btn-lg btn-primary">Save changes to item ${index}</button>
-
-                                    </div>
-
-                                </form>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                    </div>
                 <div class="container p-1" id="adminDiv">
             
                     <table class="table table-striped">
                     
                         <tr>
-                            <td><img src="${item.url}" class="img"/></td>
+                            <td>${index}</td>
+                            
+                            <td><img src="${item.url}" class="img align-content-between" style="height:50px;"/></td>
 
-                            <td class="fs-4 text-center">${item.name}</td>
+                            <td class="text-center">${item.name}</td>
 
                             <td class="text-center">${item.description}</td>
 
-                            <td class="fs-3 text-center">R ${item.price}</td>
+                            <td class="text-center">R ${item.price}</td>
 
                             <td  style="max-width: 200px; overflow: auto;" class="text-center w-25">${item.text}</td>
 
@@ -406,7 +347,6 @@ try {
                         </tr>
 
                     </table>
-
                 </div>
             `;
         }
@@ -428,9 +368,9 @@ function delAll(pos){
     // Splice has no specified second arg so removes all products in array
     itemArr.splice(pos);
 
+    saveToStorage();
     RenderProduct();
 
-    saveToStorage();
 }
 
 function clearAll(){
@@ -441,14 +381,21 @@ function clearAll(){
 
 terminateAll.addEventListener("click", clearAll);
 
+
 // ===================== Add Products ======================== \\
 
 // Get references to input fields
+
 const addImageInput = document.getElementById("imgUrl");
+
 const addPriceInput = document.getElementById("priceInput");
+
 const addDescriptionInput = document.getElementById("descriptionInput");
+
 const addTextInput = document.getElementById("textInput");
+
 const addProductInput = document.getElementById("productInput");
+
 const saveBtn = document.querySelector("[data-targ]");
 
 saveBtn.addEventListener("click", function(){

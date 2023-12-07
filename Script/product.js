@@ -8,7 +8,7 @@ let items = JSON.parse(localStorage.getItem("Admin")) || [];
 
 body.innerHTML = items.map((v, i) => {
     return `
-    <div class="card col-md-4 my-5" style="width: 18rem;">
+    <div class="card col-md-4 my-5 shadow" style="width: 18rem;">
     
         <img src="${v.url}" class="card-img-top" id="filteredImg" alt="${v.name}">
 
@@ -26,6 +26,8 @@ body.innerHTML = items.map((v, i) => {
 
             <p class="fw-bold text-center">R ${v.price}</p>
 
+            <hr class="w-100"></hr>
+
             <button value="${i}" class="bg-black w-100 text-white btn">Purchase <i class="fa-solid fa-cart-plus fa-sm" style="color: #ffffff;"></i></button>
 
         </div>
@@ -36,17 +38,28 @@ body.innerHTML = items.map((v, i) => {
 
 
 
+// ====================== Look for duplicates ============================== \\
 const addToCart = (i) => {
     //======pushing the index of the item array====== \\
-    cartList.push(items[i]);
+    const newItem = items[i];
+    const existingItemIndex = cartList.findIndex((item) => item.id === newItem.id);
 
+    if (existingItemIndex !== -1) {
+        // If item already exists, update its quantity instead of adding a duplicate \\
+        cartList[existingItemIndex].quantity += 1;
+    } else {
+        // new item, then add it to the cartList \\
+        newItem.quantity = 1; // Add quantity property to track the number of items
+        cartList.push(newItem);
+    }
+    
     // ======Then pushes the desired item into the key====== \\
     localStorage.setItem("purchased", JSON.stringify(cartList));
 }
 
 console.log(cartList);
 
-body.addEventListener("click", function() {
+body.addEventListener("click", function(event) {
 
     if(event.target.hasAttribute("value")){
 
@@ -73,13 +86,9 @@ try {
                 searchRes.innerHTML += `
                 <div class="d-flex justify-content-center">
 
-                    <div>
+                    <img src="${item.url}" id="searchImage"/>
 
-                        <img src="${item.url}" id="searchImage"/>
-
-                        <h5 class="text-center">${item.name}</h5>
-
-                    </div>
+                    <h5 class="text-center">${item.name}</h5>
 
                 </div>
                 `;
