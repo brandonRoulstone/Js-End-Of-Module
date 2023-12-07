@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/1062e64fed.js" crossorigin="anonymous"></script>
   </head>
-  <body>
+  <body id="adminBody">
     <div class="container" id="navBar">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
           <div class="col-md-3 mb-2 mb-md-0">
@@ -39,7 +39,7 @@
         </div>
       </div>
     </div>
-    <div class="container justify-content-center w-100 p-2 rounded-4">
+    <div class="container justify-content-center w-100 pt-1 pb-1" id="searcContainer">
 
       <form class="col-lg-auto mb-lg-0 me-lg-3" role="search">
 
@@ -49,12 +49,79 @@
 
       <div class="d-flex justify-content-end m-3">
 
-        <button class="btn text-white" id="sort">Sort by price</button>
+        <button class="btn text-white fw-bold" id="sort">Sort by price</button>
 
-        <button class="btn text-white" id="filter">filter categories</button>
+        <button class="btn text-white fw-bold" id="filter">filter categories</button>
+
+        <button class="btn text-white fw-bold border-danger border-1" id="clearAll" data-clearAll>Clear products</button>
+
+        <button class="btn border-black border-1 text-white" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" id="modl">Add Product</button>
+
 
       </div>
+      
+    </div>
 
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+      
+      <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+          <div class="modal-header">
+
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Add a new product</h1>
+
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+          </div>
+
+          <div class="modal-body">
+
+            <div class="mb-0 py-1">
+              
+              <p class="text-center">Url:</p>
+
+              <textarea class="form-control border-black border-1" id="imgUrl"></textarea>
+
+           </div>
+            <div class="mb-0 py-1">
+
+              <p class="text-center">Product:</p>
+
+              <textarea class="form-control border-black border-1" id="productInput"></textarea>
+
+           </div>
+
+            <div class="mb-0 py-1">
+
+              <p class="text-center">Description:</p>
+
+              <textarea class="form-control border-black border-1" id="descriptionInput"></textarea>
+
+           </div>
+
+            <div class="mb-0 py-1">
+
+              <p class="text-center">Price:</p>
+
+              <textarea class="form-control border-black border-1" id="priceInput"></textarea>
+
+           </div>
+           
+            <div class="mb-0 py-1">
+
+              <p class="text-center">Text:</p>
+
+              <textarea class="form-control border-black border-1" id="textInput"></textarea>
+           </div>
+
+          </div>
+          <div class="modal-footer">
+            <button class="btn border-success border-1 w-100" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Add product</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Search result -->
