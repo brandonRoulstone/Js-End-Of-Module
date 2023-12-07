@@ -26,7 +26,7 @@ body.innerHTML = items.map((v, i) => {
 
             <p class="fw-bold text-center">R ${v.price}</p>
 
-            <button value="${i}" class="bg-black w-100 text-white btn">Buy</button>
+            <button value="${i}" class="bg-black w-100 text-white btn">Purchase <i class="fa-solid fa-cart-plus fa-sm" style="color: #ffffff;"></i></button>
 
         </div>
 

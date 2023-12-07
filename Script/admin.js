@@ -144,7 +144,7 @@ function RenderProduct(){
             </div>
         </div>
   
-        <div class="container p-1" id="adminDiv">
+        <div class="container p-1" id="adminDiv" data-table>
         
             <table class="table table-striped">
             
@@ -243,9 +243,9 @@ function deleItem(pos){
     
     itemArr.splice(pos, 1);
 
-    saveToStorage();
-
     RenderProduct();
+
+    saveToStorage();
 }
 
 adminDom.addEventListener("click", function() {
@@ -338,14 +338,14 @@ try {
 
                                 <form>
 
-                                    <div class="mb-3 py-1">
+                                    <div class="mb-1 py-1">
 
                                         <label for="brand-name" class="col-form-label">Product brand:</label>
 
                                         <textarea class="form-control" id="brand-name">${item.name}</textarea>
 
                                     </div>
-                                    <div class="mb-3 py-1">
+                                    <div class="mb-1 py-1">
 
                                         <label for="price-name" class="col-form-label">Edit price:</label>
 
@@ -353,14 +353,14 @@ try {
 
                                     </div>
 
-                                    <div class="mb-3">
+                                    <div class="mb-1">
 
                                         <label for="message-text" class="col-form-label">Text:</label>
 
                                         <textarea class="form-control" id="message-text">${item.text}</textarea>
 
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="mb-1">
 
                                     <label for="url-text" class="col-form-label">Text:</label>
 
@@ -416,5 +416,27 @@ try {
     throw new Error(error);
 
 }
+
+
+// =================nClear All Button ================== \\
+
+const terminateAll = document.getElementById("clearAll");
+
+function delAll(pos){
+    // Splice has no specified second arg so removes all products in array
+    itemArr.splice(pos);
+
+    RenderProduct();
+
+    saveToStorage();
+}
+
+function clearAll(){
+    if(event.target.hasAttribute("data-clearAll")){
+        delAll(event.target.value, RenderProduct());
+    }
+}
+
+terminateAll.addEventListener("click", clearAll);
 
 
