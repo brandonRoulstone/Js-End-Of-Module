@@ -17,14 +17,6 @@ const checkQuantity = () => {
 }
 checkQuantity();
 
-// function calculateTotalPrice() {
-//     const totalPriceElement = document.getElementById("totalPrice");
-//     const totalPrice = purchased.reduce((total, product) => {
-//         return total + (product.price * purchased.length);
-//     }, 0);
-//     totalPriceElement.innerHTML = `Total Price: R ${totalPrice}`;
-// }
-
 const main = document.getElementById("checkoutPage");
 
 let imageCarousel = document.getElementById("displayImages");
@@ -40,17 +32,35 @@ function renderCheckout (){
 
         return `
 
-            <tr>
+            <tr class="border">
 
-                <td class="text-center bg-black text-white">${value.name}</td>
+            <th class="bg-black text-white text-center border">Name</th>
 
-                <td class="bg-black" style="max-width: 200px; overflow: auto;"><p class="text-center text-white">${value.text}</p></td>
+            <th class="bg-black text-white text-center border">Description</th>
 
-                <td class="text-center bg-black text-white" data-price>R ${value.price}</td>
+            <th class="bg-black text-white text-center border">Price</th>
 
-                <td class="text-center bg-black text-white"> ${value.description}</td>
+            <th class="bg-black text-white text-center border">Quantity</th>
 
-                <td class="bg-black"><button data-index="${index}" class="btnd">Remove</button></td>
+            <th class="bg-black text-white text-center border">Type</th>
+
+            <th class="bg-black text-white text-center border">Controls</th>
+
+            </tr>
+
+            <tr class="border">
+
+                <td class="text-center bg-black text-white border">${value.name}</td>
+
+                <td class="bg-black" style="max-width: 200px; overflow: auto;"><p class="text-center text-white border">${value.text}</p></td>
+
+                <td class="text-center bg-black text-white border" data-price>R ${value.price * value.quantity}</td>
+
+                <td class="text-center bg-black text-white border" data-price> ${value.quantity}</td>
+
+                <td class="text-center bg-black text-white border">${value.description}</td>
+
+                <td class="bg-black border"><button data-index="${index}" class="btnd">Remove</button></td>
                 
             </tr>
         `;
@@ -73,17 +83,14 @@ function renderCheckout (){
 renderCheckout();
 
 function calculateTotalPrice() {
-    const totalPrice = purchased.reduce((accumulator, currentItem) => {
-        return accumulator + currentItem.price;
+    const totalPrice = purchased.reduce((x, i) => {
+        return x + i.price * i.quantity;
     }, 0);
 
     priceValue.innerHTML = `<p>Total Price: R ${totalPrice}</p>`;
 }
 
 calculateTotalPrice();
-
-
-
 
 
 
@@ -102,7 +109,7 @@ function renderImg(){
     imageCarousel.innerHTML = purchased.map(val => {
         return `
         <div>
-        <img src="${val.url}" alt="${val.name}" class="image" title="${val.name}"/>
+         <img src="${val.url}" alt="${val.name}" class="image" title="${val.name}"/>
         </div>
         `;
     });
@@ -115,6 +122,8 @@ function deleteProduct(position) {
     purchased.splice(position, 1);
 
     saveToStorage();
+
+    renderImg();
 
     checkQuantity();
 
@@ -133,13 +142,3 @@ main.addEventListener("click", function(event) {
         deleteProduct(index); 
     }
 });
-
-
-const clearHistoryBtn = document.getElementById("btnClear");
-
-clearHistoryBtn.addEventListener("click", function(){
-    imageCarousel.innerHTML = "";
-});
-
-
-    

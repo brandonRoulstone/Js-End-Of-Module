@@ -10,6 +10,7 @@
     --blue: rgb(0, 208, 255);
     --lightgreen: rgb(36, 216, 36);
     --purple: rgba(128, 0, 128, 0.283);
+    --transparent: rgba(0, 0, 0, 0);
 }
 
 #searcContainer{
@@ -176,11 +177,11 @@
 @keyframes beat {
     10%{
         transition: all 2s;
-        color: yellow;
+        color: black;
     }
     100%{
         transition: all 2s;
-        color: orange;
+        color: grey;
     }
 }
 
@@ -219,10 +220,16 @@
 }
 
 [data-index]{
-    background-color: var(--red);
+    border: 1px solid var(--red);
+    border-radius: 7px;
     color: var(--White);
-    border: none;
+    background-color: var(--transparent);
+    text-align: center;
     padding: 3px;
+}
+[data-index]:hover{
+    background-color: red;
+    transition: all 1s;
 }
 
 
@@ -256,11 +263,35 @@
 
 @media (max-width: 600px) {
     #productPage{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        margin: 80px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
+}
+@media (max-width: 300px) {
+    #productPage{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    #searcContainer{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    #sort, #filter{
+        font-size: 5px;
+    }
+
+    #adminPage{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        font-size: 5px;
+        /* width: 100%; */
+    }
 
 }
 
