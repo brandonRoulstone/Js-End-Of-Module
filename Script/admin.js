@@ -190,13 +190,6 @@ function RenderProduct(){
 
 RenderProduct();
 
-function activeEdit(){
-    adminDom.innerHTML = itemArr.map((item, index)=>{
-        return ` 
-        
-        `
-    })
-}
 
 adminDom.addEventListener("click", function () {
     if(event.target.classList.contains("edit")){
@@ -443,6 +436,5 @@ saveBtn.addEventListener("click", function(){
 
     saveToStorage();
 
-    
     RenderProduct();
 });
