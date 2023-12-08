@@ -156,11 +156,11 @@ function RenderProduct(){
                     
                     <td class="border"><img src="${item.url}" class="img align-content-between" style="height:50px;"/></td>
 
-                    <td class="fs-3 text-center">${item.name}</td>
+                    <td class="text-center">${item.name}</td>
 
                     <td class="text-center border">${item.description}</td>
 
-                    <td class="fs-3 text-center border">R ${item.price}</td>
+                    <td class="text-center border">R ${item.price}</td>
 
                     <td  style="max-width: 200px; overflow: auto;" class="text-center w-25 border">${item.text}</td>
 
@@ -354,9 +354,9 @@ try {
 
                             <td  style="max-width: 200px; overflow: auto;" class="text-center w-25">${item.text}</td>
 
-                            <td class=""><button class="edit" id="editBtn" value="${index}">Edit</button></td>
+                            <td class=""><button class="edit" id="editBtn" value="${index}"><i class="fa-regular fa-pen-to-square fa-sm" style="color: #ffffff;"></i></button></button></td>
 
-                            <td class=""><button class="delete" id="remove" value="${index}">Del <i class="fa-solid fa-trash-can fa-sm" style="color: #ffffff;"></i></button></td>
+                            <td class=""><button class="delete" id="remove" value="${index}"><i class="fa-solid fa-trash-can fa-sm" style="color: #ffffff;"></i></button></td>
 
                         </tr>
 
