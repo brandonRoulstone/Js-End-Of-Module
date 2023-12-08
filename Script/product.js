@@ -54,7 +54,7 @@ const addToCart = (i) => {
     }
     
     // ======Then pushes the desired item into the key====== \\
-    localStorage.setItem("purchased", JSON.stringify(cartList));
+    localStorage.setItem("purchased", JSON.stringify(cartList)) || [];
 }
 
 console.log(cartList);
@@ -108,12 +108,17 @@ try {
 
 // ==================Spinner===================\\
 
-const loader = document.getElementById("loader");
-
-if(items.length > 0){
-    loader.style.display = "none";
-} else if (items.length === 0){
-    loader.style.display = "block";
+try {
+    const loader = document.getElementById("loader");
+    
+    if(items.length > 0){
+        loader.style.display = "none";
+    } else if (items.length === 0){
+        loader.style.display = "block";
+    }
+    
+} catch (error) {
+    throw new Error(error)
 }
 
 

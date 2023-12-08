@@ -11,6 +11,7 @@
     --lightgreen: rgb(36, 216, 36);
     --purple: rgba(128, 0, 128, 0.283);
     --transparent: rgba(0, 0, 0, 0);
+    --orange: orangered;
 }
 
 #searcContainer{
@@ -32,6 +33,10 @@
     animation-iteration-count: infinite;
 }
 
+#navBarItems{
+    position: fixed;
+}
+
 @keyframes Spin {
     0%{
         transform: rotateZ(0deg);
@@ -41,14 +46,45 @@
     }
 }
 
-[data-nav]:hover{
-    border-bottom: 1px solid var(--black);
-    transition: 1s ease-in-out;
-}
-[data-nav-nav]:hover{
-    border-bottom: 1px solid var(--black);
-    transition: 1s ease-in-out;
-}
+[data-nav] {
+    font-size: 18px;
+    color: #000000;
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+  }
+  
+  [data-nav]:focus,
+  [data-nav]:hover {
+    color: #000000;
+  }
+  
+  [data-nav]:focus:after,
+  [data-nav]:hover:after {
+    width: 100%;
+    left: 0%;
+  }
+  
+  [data-nav]:after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #000000;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: width, left;
+  }
 
 #navBarItems{
     position: fixed;
@@ -72,7 +108,7 @@
 }
 
 
-/* adminPage */
+/* ================ adminPage ======================*/
 
 #adminPage{
     min-height: 100vh;
@@ -199,6 +235,8 @@
 
 
 
+
+
 /* ================= Checkout page ==================== */
 
 #checkoutPage{
@@ -230,6 +268,15 @@
 [data-index]:hover{
     background-color: red;
     transition: all 1s;
+}
+
+
+/* ======================= About ===================== */
+
+#custom-cards{
+    background-image: url("");
+    image-rendering: crisp-edges;
+    aspect-ratio: 2 / 3;
 }
 
 
