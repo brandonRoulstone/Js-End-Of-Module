@@ -100,49 +100,51 @@ function RenderProduct(){
 
                         <form>
 
-                        <div class="mb-3 py-1">
+                            <div class="mb-3 py-1">
 
-                          <label for="brand-name" class="col-form-label">Product brand:</label>
+                             <label for="brand-name" class="col-form-label">Product brand:</label>
 
-                          <textarea class="form-control" id="brand-name">${item.name}</textarea>
+                                <textarea class="form-control" id="brand-name">${item.name}</textarea>
 
-                        </div>
-                        <div class="mb-3 py-1">
+                            </div>
 
-                          <label for="price-name" class="col-form-label">Edit price:</label>
+                            <div class="mb-3 py-1">
 
-                          <textarea class="form-control" id="price-name">R ${item.price}</textarea>
+                             <label for="price-name" class="col-form-label">Edit price:</label>
 
-                        </div>
+                             <textarea class="form-control" id="price-name">R ${item.price}</textarea>
 
-                        <div class="mb-3">
+                            </div>
 
-                          <label for="message-text" class="col-form-label">Text:</label>
+                            <div class="mb-3">
 
-                          <textarea class="form-control" id="message-text">${item.text}</textarea>
+                                <label for="message-text" class="col-form-label">Text:</label>
 
-                        </div>
-                        <div class="mb-3">
+                                <textarea class="form-control" id="message-text">${item.text}</textarea>
 
-                          <label for="url-text" class="col-form-label">Text:</label>
+                            </div>
+                            <div class="mb-3">
 
-                          <textarea class="form-control" id="url-text">${item.url}</textarea>
+                                <label for="url-text" class="col-form-label">Text:</label>
 
-                        </div>
+                             <textarea class="form-control" id="url-text">${item.url}</textarea>
 
-                        <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+                            </div>
 
-                            <button type="button" class="btn btn-lg btn-primary">Save changes to item ${i}</button>
+                            <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
 
-                        </div>
+                                <button type="button" class="btn btn-lg btn-primary">Save changes to item ${i}</button>
 
-                      </form>
+                            </div>
+
+                        </form>
 
                     </div>
 
-                    </div>
-              </div>
+                </div>
+
             </div>
+            
         </div>
   
         <div class="container p-1" id="adminDiv" data-table>
@@ -247,6 +249,7 @@ function deleItem(pos){
     itemArr.splice(pos, 1);
 
     saveToStorage();
+    
     RenderProduct();
 
 }
@@ -347,6 +350,7 @@ try {
                         </tr>
 
                     </table>
+
                 </div>
             `;
         }
@@ -369,6 +373,7 @@ function delAll(pos){
     itemArr.splice(pos);
 
     saveToStorage();
+
     RenderProduct();
 
 }
@@ -423,7 +428,3 @@ saveBtn.addEventListener("click", function(){
     saveToStorage();
     RenderProduct();
 });
-
-
-
-// console.log(addImage);

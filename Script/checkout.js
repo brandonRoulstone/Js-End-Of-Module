@@ -1,21 +1,5 @@
 let purchased = JSON.parse(localStorage.getItem("purchased"));
 let quantity = document.getElementById("quantity");
-let checkoutQuantity = document.querySelector("[data-nav-nav]");
-
-const checkQuantity = () => {
-    if(purchased.length > 0){
-        let view = purchased.length;
-
-        quantity.innerHTML = `<p>${view}</p>`;
-
-    } else if (purchased.length === 0){
-        let view = purchased.length;
-
-        quantity.innerHTML = `<p>${view}</p>`;
-        
-    }
-}
-checkQuantity();
 
 const main = document.getElementById("checkoutPage");
 
@@ -54,7 +38,7 @@ function renderCheckout (){
 
                 <td class="bg-black" style="max-width: 200px; overflow: auto;"><p class="text-center text-white border">${value.text}</p></td>
 
-                <td class="text-center bg-black text-white border" data-price>R ${value.price * value.quantity}</td>
+                <td class="text-center bg-black text-white border" data-price>R ${value.price}</td>
 
                 <td class="text-center bg-black text-white border" data-price> ${value.quantity}</td>
 
@@ -66,41 +50,56 @@ function renderCheckout (){
         `;
         
     });
-        // =================== loader =====================\\
+    try {
+            // =================== loader =====================\\
 
-        const loader = document.getElementById("loader");
+            const loader = document.getElementById("loader");
 
-        if(purchased.length > 0){
+            if(purchased.length > 0){
+        
+                loader.style.display = "none";
+        
+            } else if (purchased.length === 0){
+        
+                loader.style.display = "block";
+        
+            }
+    } catch (error) {
 
-            loader.style.display = "none";
-
-        } else if (purchased.length === 0){
-
-            loader.style.display = "block";
-
-        }
+        throw new Error(error);
+        
+    }
 }
 renderCheckout();
 
-function calculateTotalPrice() {
-    const totalPrice = purchased.reduce((x, i) => {
-        return x + i.price * i.quantity;
-    }, 0);
+try {
+    function calculateTotalPrice() {
+        const totalPrice = purchased.reduce((x, i) => {
+            return x + i.price * i.quantity;
+        }, 0);
+    
+        priceValue.innerHTML = `<p>Total Price: R ${totalPrice}</p>`;
+    }
+    
+    calculateTotalPrice();
 
-    priceValue.innerHTML = `<p>Total Price: R ${totalPrice}</p>`;
+} catch (error) {
+    throw new Error(error);
 }
 
-calculateTotalPrice();
 
 
 
+try {
+    function saveToStorage(){
+        localStorage.setItem("purchased", JSON.stringify(purchased));
+    
+        purchased = JSON.parse(localStorage.getItem("purchased"));
+    }
+} catch (error) {
 
-function saveToStorage(){
-    localStorage.setItem("purchased", JSON.stringify(purchased));
+    throw new Error(error);
 
-    purchased = JSON.parse(localStorage.getItem("purchased"));
-
-    console.log(purchased);
 }
 
 
@@ -117,20 +116,23 @@ function renderImg(){
 renderImg();
 
 
-function deleteProduct(position) {
+try {
+    function deleteProduct(position) {
 
-    purchased.splice(position, 1);
-
-    saveToStorage();
-
-    renderImg();
-
-    checkQuantity();
-
-    calculateTotalPrice();
-
-    renderCheckout();
+        purchased.splice(position, 1);
     
+        
+        renderImg();
+        
+        calculateTotalPrice();
+        
+        saveToStorage();
+        
+        renderCheckout();
+        
+    }
+} catch (error) {
+    throw new Error(error);
 }
 
 main.addEventListener("click", function(event) {
