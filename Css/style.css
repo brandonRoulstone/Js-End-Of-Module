@@ -253,21 +253,39 @@
 }
 
 /* ================== Meadia Queries ================= */
+
+
+@media (max-width: 1200px) {
+    
+    #tecs{
+        font-size: 20px;
+    }
+
+}
 @media (max-width: 1080px) {
     #productPage{
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
     }
+    #tecs{
+        font-size: 20px;
+    }
 }
 
 
-@media (max-width: 998px) {
+@media (max-width: 992px) {
     #productPage{
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
     }
+
+    #tecs{
+        font-size: 20px;
+    }
+
+    
 
 }
 
@@ -277,6 +295,9 @@
         justify-content: center;
         flex-wrap: wrap;
     }
+    #tecs{
+        font-size: 50px;
+    }
 
 }
 
@@ -285,6 +306,9 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+    }
+    #tecs{
+        font-size: 13px;
     }
 
 }
@@ -305,6 +329,9 @@
         justify-content: center;
         flex-wrap: wrap;
         font-size: 7px;
+    }
+    #tecs{
+        font-size: 10px;
     }
 
 }
