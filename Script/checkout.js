@@ -87,6 +87,30 @@ try {
     throw new Error(error);
 }
 
+// =================nClear All Button ================== \\
+
+const terminateAll = document.getElementById("clearAll");
+
+function delAll(pos){
+    // Splice has no specified second arg so removes all products in array
+    purchased.splice(pos);
+
+    saveToStorage();
+
+    renderImg();
+
+    renderCheckout();
+
+}
+
+function clearAll(){
+    if(event.target.hasAttribute("data-clearAll")){
+        delAll(event.target.value, renderCheckout());
+    }
+}
+
+terminateAll.addEventListener("click", clearAll);
+
 
 
 
