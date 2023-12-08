@@ -21,18 +21,6 @@
      background-color: var(--black);
 }
 
-#logo{
-    border-radius: 60px;
-    width: 60px;
-    height: 60px;
-    flex-shrink: 0;
-
-    animation: Spin;
-    animation-duration: 5s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-}
-
 @keyframes Spin {
     0%{
         transform: rotateZ(0deg);
@@ -152,7 +140,7 @@
     width: 100%;
 }
 
-#sort, #filter, #clearAll,#modl{
+#sort, #clearAll,#modl{
     margin-left: 5px;
 }
 
@@ -167,15 +155,6 @@
 
 #sort:hover{
     background-color: var(--blue);
-    transition: all 0.4s ease-in-out;
-}
-
-#filter{
-    border: 1px solid var(--lightgreen);
-}
-
-#filter:hover{
-    background-color: var(--lightgreen);
     transition: all 0.4s ease-in-out;
 }
 
@@ -321,16 +300,11 @@
         flex-wrap: wrap;
     }
 
-    #sort, #filter{
-        font-size: 5px;
-    }
-
     #adminPage{
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        font-size: 5px;
-        /* width: 100%; */
+        font-size: 7px;
     }
 
 }
