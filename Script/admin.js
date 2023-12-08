@@ -190,6 +190,21 @@ function RenderProduct(){
 
 RenderProduct();
 
+function activeEdit(){
+    adminDom.innerHTML = itemArr.map((item, index)=>{
+        return ` 
+        
+        `
+    })
+}
+
+adminDom.addEventListener("click", function () {
+    if(event.target.classList.contains("edit")){
+    
+    }})
+
+
+
 // =============Modal funtionality============ \\
 
 const modal = document.getElementById("myModal");
@@ -275,9 +290,12 @@ try {
     const handleSearch = () => {
 
         const searchTerm = sInput.value.toLowerCase();
-
+        // =================== Filter all products by their name ========================\\
         const filteredItems = itemArr.filter(item => {
-
+            // if search bar finds any value(letter) 
+            // example input = i;
+            // ok!
+            // filter out anything with "i" :]
             if(item.name.toLowerCase().includes(searchTerm)){
 
                 searchRes.innerHTML += `
@@ -306,8 +324,8 @@ try {
 
 }
 
-// ==================Sort Button=========================== \\
-
+// ===================== Sort Button ====================== \\
+// ==================== Error handling ===================== \\
 try {
     let sortBtn = document.getElementById("sort");
 
@@ -389,7 +407,7 @@ terminateAll.addEventListener("click", clearAll);
 
 // ===================== Add Products ======================== \\
 
-// Get references to input fields
+// Get references to all input fields on admin.html
 
 const addImageInput = document.getElementById("imgUrl");
 
@@ -421,10 +439,10 @@ saveBtn.addEventListener("click", function(){
         newText
     );
 
-    
     itemArr.push(newProduct);
 
-    
     saveToStorage();
+
+    
     RenderProduct();
 });
