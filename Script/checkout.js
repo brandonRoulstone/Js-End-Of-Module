@@ -168,3 +168,16 @@ main.addEventListener("click", function(event) {
         deleteProduct(index); 
     }
 });
+
+
+const buttonCheckOut = document.getElementById("buttonChecked");
+
+
+buttonCheckOut.addEventListener("click", function(){
+    if(purchased.length === 0){
+        alert("no items purchased cannot continue to checkout server responded with a 404 error");
+    } else {
+        alert("thank you for purchasing at Hypebeast");
+    }
+})
+
