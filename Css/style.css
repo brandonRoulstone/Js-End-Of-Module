@@ -33,10 +33,6 @@
     animation-iteration-count: infinite;
 }
 
-#navBarItems{
-    position: fixed;
-}
-
 @keyframes Spin {
     0%{
         transform: rotateZ(0deg);
@@ -273,12 +269,9 @@
 
 /* ======================= About ===================== */
 
-#custom-cards{
-    background-image: url("");
-    image-rendering: crisp-edges;
-    aspect-ratio: 2 / 3;
+#aboutBody{
+    min-height: 100vh;
 }
-
 
 /* ================== Meadia Queries ================= */
 @media (max-width: 1080px) {
